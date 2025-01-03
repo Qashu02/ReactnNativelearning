@@ -1,13 +1,14 @@
 import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
+import {MaterialCommunityIcons} from '@expo/vector-icons'
 
 function ShopScreen(props) {
     return (
         
  <View  style={styles.background} >
    
-    <View style={styles.tick}/>
-    <View style={ styles.cros}/>
+    <View style={styles.tick}> <MaterialCommunityIcons name='check'color={'white'} size={30} /> </View>
+    <View style={ styles.cros}> <MaterialCommunityIcons name='close' color={'yellow'} size={30}/> </View>
 
     
     <Image resizeMode='contain' style={{width: '100%', height:'100%'}}  source={require('../assets/image.png')} />
@@ -28,17 +29,15 @@ const styles = StyleSheet.create({
     //     justifyContent:'space-between'
     // },
     tick:{
-        backgroundColor:'yellow',
-        width:50,
-        height:50,
+      
+       
   position: 'absolute',
  top:40,
  left:30
     },
     cros:{
-        backgroundColor:'red',
-        width:50,
-        height:50,
+      
+     
         position:'absolute',
         top:40,
        right:30
