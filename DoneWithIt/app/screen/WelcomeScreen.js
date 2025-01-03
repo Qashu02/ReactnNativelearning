@@ -1,27 +1,27 @@
 import React from 'react';
 import { ImageBackground, View , StyleSheet, Button,Text, Image} from 'react-native';
+import AppButton from '../components/AppButton';
+import AppText from '../components/AppText';
 
 function WelcomeScreen() {
     return (
         <>
       
-    <ImageBackground style={styles.background} source={require("../assets/background.jpg")}>
+    <ImageBackground  style={styles.background} source={require("../assets/background.jpg")}>
     <View style={styles.Container}>
 
     <Image style={styles.logo} source={require('../assets/favicon.png')} />
-    <Text style={{color:'white'}}>Hi Welcome and Get Married</Text>
+    <AppText> Hi Welcome and Marry Early!</AppText>
     </View>
     
-     </ImageBackground>
    
-    <View style={styles.login} >
-        {/* <Button title='login'/>
-        <Button title='Register' /> */}
-        
-        </View>
-        <View style={styles.Register}>
+   <View style={styles.btnContainer}>
 
-        </View>
+      <AppButton title={'login'}/> 
+       <AppButton title={"Register"}  />
+        
+   </View>
+     </ImageBackground>
         </>
         
     );
@@ -30,20 +30,11 @@ const styles=StyleSheet.create({
     background :{
         flexDirection:'column',
         flex:1,
-        justifyContent:'flex-end',
+      
         alignItems:'center',
         
     },
-    login:{
-      backgroundColor: 'tomato',
-     width:"100%",
-     height: 40
-    },
-    Register:{
-        backgroundColor:'blue',
-        width:"100%",
-        height:40,
-    },
+ 
     logo:{
 
 alignSelf: 'center'
@@ -55,6 +46,18 @@ alignSelf: 'center'
        
        
     }
+    
+    ,btnContainer:{
+        flexDirection:'column',
+        width:'100%',
+        position:'absolute',
+        bottom:10,
+        marginVertical:10,
+        gap:20,
+        padding:15
+      
+    }
+    ,
 })
 export default WelcomeScreen;
 

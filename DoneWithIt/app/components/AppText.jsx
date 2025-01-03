@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     fontFamily:'Aria',
     fontWeight:'bold',
     textAlign:'center',
-  
+  color:'white'
 
     }
 })
