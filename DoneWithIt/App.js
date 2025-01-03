@@ -1,31 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
 import { Image, StyleSheet, Text, Platform, TouchableHighlight, Alert, TouchableOpacity, View , Button, SafeAreaView} from 'react-native';
+import WelcomeScreen from './app/screen/WelcomeScreen';
+import ShopScreen from './app/screen/ShopScreen';
 
 export default function App() {
-  return (
-    <SafeAreaView style={styles.container}>
-
-      <Text>React Native is superb easy</Text>
-      <TouchableOpacity  onPress={()=> console.log("Now i am working")}>
-     
-     <Image  source={require("./assets/favicon.png")}/>
-     
-      </TouchableOpacity>
-      <StatusBar style="auto" />
-    </SafeAreaView>
  
-   
-
-   
-  );
+  return <View style={styles.container}>
+<ShopScreen/>
+  </View>
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: 'yellow',
+    
+    backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: Platform.OS==="android"? StatusBar.currentHeight : 0,
+    flex: 1,
+  
   },
 });
