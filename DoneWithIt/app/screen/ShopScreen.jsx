@@ -4,34 +4,45 @@ import { Image, StyleSheet, View } from 'react-native';
 function ShopScreen(props) {
     return (
         
- <View >
-    <View style={styles.navContainer}>
+ <View  style={styles.background} >
+   
     <View style={styles.tick}/>
     <View style={ styles.cros}/>
 
-    </View>
-    <Image style={{width: 380, height:400}}  source={require('../assets/image.png')} />
+    
+    <Image resizeMode='contain' style={{width: '100%', height:'100%'}}  source={require('../assets/image.png')} />
  </View>
     );
 }
 
 const styles = StyleSheet.create({
-    navContainer:{
-        bottom:70,
-        right:30,
-        flexDirection: 'row',
-        justifyContent:'space-between'
+    background:{
+        backgroundColor:'black',
+        flex:1,
+        
     },
+    // navContainer:{
+    //     bottom:70,
+    //     right:30,
+    //     flexDirection: 'row',
+    //     justifyContent:'space-between'
+    // },
     tick:{
         backgroundColor:'yellow',
-        width:30,
-        height:30,
-        right:-60
+        width:50,
+        height:50,
+  position: 'absolute',
+ top:40,
+ left:30
     },
     cros:{
         backgroundColor:'red',
-        width:30,
-        height:30,
+        width:50,
+        height:50,
+        position:'absolute',
+        top:40,
+       right:30
+      
     }
 })
 

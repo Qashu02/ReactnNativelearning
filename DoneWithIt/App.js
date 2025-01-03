@@ -5,18 +5,16 @@ import ShopScreen from './app/screen/ShopScreen';
 
 export default function App() {
  
-  return <View style={styles.container}>
-<ShopScreen/>
-  </View>
+  return <ShopScreen/>
+ 
 }
 
 const styles = StyleSheet.create({
   container: {
     
-    backgroundColor: 'black',
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
-    flex: 1,
   
   },
 });
