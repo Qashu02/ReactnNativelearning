@@ -1,8 +1,8 @@
 
 import  { StyleSheet,Text} from 'react-native';
-function AppText({children}) {
+function AppText({children ,style}) {
     return (
-     <Text style={styles.text}>
+     <Text style={[styles.text, style]}>
         {children}
      </Text>
     );
@@ -12,8 +12,8 @@ const styles = StyleSheet.create({
     fontSize:18,
     fontFamily:'Aria',
     fontWeight:'bold',
-    textAlign:'center',
-  color:'white'
+    textAlign : 'center'
+   
 
     }
 })

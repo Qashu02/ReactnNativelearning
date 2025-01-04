@@ -7,18 +7,18 @@ function WelcomeScreen() {
     return (
         <>
       
-    <ImageBackground  style={styles.background} source={require("../assets/background.jpg")}>
+    <ImageBackground blurRadius={5} style={styles.background} source={require("../assets/background.jpg")}>
     <View style={styles.Container}>
 
     <Image style={styles.logo} source={require('../assets/favicon.png')} />
-    <AppText> Hi Welcome and Marry Early!</AppText>
+    <AppText style={{color:'white'}}> Hi Welcome and Marry Early!</AppText>
     </View>
     
    
    <View style={styles.btnContainer}>
 
       <AppButton title={'login'}/> 
-       <AppButton title={"Register"}  />
+       <AppButton title={"Register"}style={{backgroundColor:'purple'}}  />
         
    </View>
      </ImageBackground>
