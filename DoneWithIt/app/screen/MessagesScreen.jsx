@@ -2,6 +2,7 @@ import React from 'react';
 import { FlatList, View,StyleSheet } from 'react-native';
 import ListItem from '../components/ListItem';
 import Screen from '../components/Screen';
+import itemSeprator from '../components/itemSeprator';
 
 function MessagesScreen(props) {
     const message=[
@@ -23,7 +24,39 @@ id:1,
 title:'T1',
 description:'D1',
 image:require("../assets/image.png")
-    }
+    },
+    {
+        id:1,
+        title:'T1',
+        description:'D1',
+        image:require("../assets/image.png")
+            },
+            {
+                id:1,
+                title:'T1',
+                description:'D1',
+                image:require("../assets/image.png")
+                    },
+                    {
+                        id:1,
+                        title:'T1',
+                        description:'D1',
+                        image:require("../assets/image.png")
+                            }
+                            ,  {
+                                id:1,
+                                title:'T1',
+                                description:'D1',
+                                image:require("../assets/image.png")
+                                    }
+                                    ,  {
+                                        id:1,
+                                        title:'T1',
+                                        description:'D1',
+                                        image:require("../assets/image.png")
+                                            }
+                                            ,
+                                
       
 ]
     return (
@@ -34,7 +67,9 @@ image:require("../assets/image.png")
       renderItem={({item})=><ListItem
       title={item.title}
       subtitle={item.description}
-      image={item.image}/>}
+      image={item.image}/>
+    }
+ItemSeparatorComponent={itemSeprator}
       >
 
       </FlatList>
