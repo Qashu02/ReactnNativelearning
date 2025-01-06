@@ -1,16 +1,21 @@
 import React from 'react';
-import { View ,StyleSheet, Image,Text, TouchableOpacity } from 'react-native';
+import { View ,StyleSheet, Image,Text, TouchableHighlight } from 'react-native';
 
-function ListItem({image,title,subtitle}) {
+function ListItem({image,title,subtitle , onPress}) {
     return (
-      <TouchableOpacity style={styles.user}>
+    <TouchableHighlight underlayColor={'blue'} onPress={onPress}>
+<View style={styles.user}>
+
 
            <Image style={styles.img} source={image} />
            <View styl={styles.userInfo}>
             <Text style={styles.userName}>{title}</Text>
             <Text style={styles.userServices}>{subtitle}</Text>
             </View> 
-      </TouchableOpacity>
+</View>
+    </TouchableHighlight>
+
+     
         
     );
 }

@@ -14,26 +14,26 @@ image:require("../assets/image.png")
     },
         {
 id:1,
-title:'T1',
+title:'T2',
 description:'D1',
 image:require("../assets/image.png")
     }
     ,
         {
 id:1,
-title:'T1',
+title:'T3',
 description:'D1',
 image:require("../assets/image.png")
     },
     {
         id:1,
-        title:'T1',
+        title:'T3',
         description:'D1',
         image:require("../assets/image.png")
             },
             {
                 id:1,
-                title:'T1',
+                title:'T4',
                 description:'D1',
                 image:require("../assets/image.png")
                     },
@@ -67,7 +67,9 @@ image:require("../assets/image.png")
       renderItem={({item})=><ListItem
       title={item.title}
       subtitle={item.description}
-      image={item.image}/>
+      image={item.image}
+      onPress={()=>alert(`thanks for tap ${item.title}`)}/>
+      
     }
 ItemSeparatorComponent={itemSeprator}
       >
