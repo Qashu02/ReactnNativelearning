@@ -13,7 +13,7 @@ const InitialMessage = [
 ];
 
 function MessagesScreen(props) {
-   
+    const [Refreshing, setRefreshing] = useState(false);
     const [Messages, setMessages] = useState(InitialMessage);
 
     const handleDel = (message) => {
@@ -38,7 +38,14 @@ function MessagesScreen(props) {
                     />
                 )}
                 ItemSeparatorComponent={itemSeprator}
-            
+                refreshing={Refreshing}
+                onRefresh={() => {
+                    // Refresh to initial state
+                    setMessages([
+                        { id: 2, title: 'T1', description: 'D1', image: require("../assets/image.png") },
+                        { id: 3, title: 'T1', description: 'D1', image: require("../assets/image.png") },   
+                    ]);
+                }}
             />
         </Screen>
     );
