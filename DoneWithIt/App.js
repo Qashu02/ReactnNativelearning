@@ -6,15 +6,11 @@ import ListItem from './app/components/ListItem';
 import { GestureHandlerRootView, PanGestureHandler } from 'react-native-gesture-handler';
 import AccountScreen from './app/screen/AccountScreen';
 import Screen from './app/components/Screen';
+import ListingScreen from './app/screen/ListingScreen';
 export default function App() {
  
   return <>
-  
-<Screen style={styles.container}>
-  
   <AccountScreen/>
-</Screen>
- 
   </>
  
 }

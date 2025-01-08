@@ -24,9 +24,7 @@ function ListItem({
   renderRightActions,
 }) {
   return (<>
-  <GestureHandlerRootView>
 
- <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight onPress={onPress}>
         <View style={[styles.container, style]}>
         {ImageComponent}
@@ -37,8 +35,7 @@ function ListItem({
           </View>
         </View>
       </TouchableHighlight>
-    </Swipeable>
-  </GestureHandlerRootView>
+  
   </>
   );
 }

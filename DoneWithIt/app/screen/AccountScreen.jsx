@@ -25,14 +25,12 @@ const menu=[{
 function AccountScreen(props) {
     return (
        <Screen style={styles.screen}>
-<View  style={styles.container}>
 
+<View style={styles.container}>
            <ListItem title={'Qasim'}
             subTitle={'hafizqasim5566@gmail.com'}
             image={require('../assets/Hall1.jpg')}
             />
-
-
         </View>
 <View style={styles.container}>
 <FlatList data={menu}
@@ -49,13 +47,10 @@ ImageComponent={<Icon name={item.icon.name} backgroundColor={item.icon.backgroun
 const styles = StyleSheet.create({
     screen:{
         backgroundColor:'#F7F5EF',
-       flex:1,
-       overflow:'hidden'
-       
     }
     ,
     container:{
-flex:1
+marginVertical:20,
     }
 })
 export default AccountScreen;
