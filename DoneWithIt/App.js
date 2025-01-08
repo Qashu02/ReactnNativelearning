@@ -7,10 +7,11 @@ import { GestureHandlerRootView, PanGestureHandler } from 'react-native-gesture-
 import AccountScreen from './app/screen/AccountScreen';
 import Screen from './app/components/Screen';
 import ListingScreen from './app/screen/ListingScreen';
+import ListingHalls from './app/screen/ListingHalls';
 export default function App() {
  
   return <>
-  <AccountScreen/>
+ <ListingHalls/>
   </>
  
 }

@@ -31,11 +31,11 @@ const styles = StyleSheet.create({
 
 
         height:210,
-        marginTop:100,
-        marginHorizontal:30,
        
+        marginHorizontal:10,
+       marginVertical:20,
         backgroundColor:'white',
-        marginBottom:20,
+        marginBottom:0,
         borderRadius:25,
         overflow:'hidden',
         shadowColor:'black',

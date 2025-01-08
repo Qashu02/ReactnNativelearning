@@ -1,6 +1,7 @@
 import React from 'react';
 import { FlatList } from 'react-native';
 import Card from '../components/Card';
+import Screen from '../components/Screen';
 
 const halls=[{
     id:1,
@@ -15,9 +16,14 @@ const halls=[{
 }]
 function ListingHalls(props) {
     return (
-     <FlatList data={halls}
-     keyExtractor={(halls)=>halls.id.toString()}
-     renderItem={({item})=><Card title={item.name}/>} />
+        <Screen>
+
+            <FlatList data={halls}
+            keyExtractor={(halls)=>halls.id.toString()}
+            renderItem={({item})=><Card title={item.name}
+            subtitle={item.price}
+            image={item.image}/>} />
+        </Screen>
     );
 }
 
