@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Image, StyleSheet, Text, Platform, TouchableHighlight, Alert, TouchableOpacity, View , Button, SafeAreaView} from 'react-native';
+import { Image, StyleSheet, Text, Platform, TouchableHighlight, Alert, TouchableOpacity, View , Button, SafeAreaView, Switch} from 'react-native';
 
 import Icon from './app/components/Icon';
 import ListItem from './app/components/ListItem';
@@ -12,17 +12,12 @@ import AppText from './app/components/AppText';
 import AppTextInput from './app/components/AppTextInput';
 import { useState } from 'react';
 export default function App() {
- const[username,setUsername]=useState('')
+ const[isOn,setIsOn]=useState(true)
 
   return <>
  
-  
- <AppTextInput
-  placeholder="Enter Username"
- name={'email'}
- onChangeText={(text)=>setUsername(text)}
- 
-  />
+<Switch value={isOn}
+onValueChange={newValue=>setIsOn(newValue)}/>
 
   </>
  
