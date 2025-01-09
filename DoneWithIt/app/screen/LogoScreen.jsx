@@ -22,24 +22,26 @@ function LogoScreen(props) {
     <Formik initialValues={{email:'', password:''}}
     onSubmit={(values)=>console.log(values)}
     validationSchema={validationSchema}>
-       {({handleChange,handleSubmit,errors})=>
+       {({handleChange,handleSubmit,errors,setFieldTouched,touched})=>
        <>
 <AppTextInput name={'email'}
 placeholder='EnterEmail'
 autoCapitalize='none'
 onChangeText={handleChange("email")}
+onBlur={()=>setFieldTouched('email')}
 autoCorrect={false}
 keyboardType= 'email-address'/>
 
-<AppError error={errors.email}/>
+<AppError visible={touched.email} error={errors.email}/>
 <AppTextInput name={'lock'}
 placeholder='Enter Pass'
+onBlur={()=>setFieldTouched("password")}
 onChangeText={handleChange("password")}
 autoCapitalize='none'
 autoCorrect={false}
 keyboardType= 'numeric'
 secureTextEntry/>
-       <AppError error={errors.password}/>
+       <AppError visible={touched.password} error={errors.password}/>
 <Screen>
 
 <AppButton title={'login'} onPress={handleSubmit}/>
