@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     screen:{
         paddingTop:Constants.statusBarHeight,
 
-        
+        padding:5,
         
     }
 })
