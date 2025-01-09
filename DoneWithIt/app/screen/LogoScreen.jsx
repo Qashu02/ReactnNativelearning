@@ -1,33 +1,43 @@
-import React, { useState } from 'react';
+
 import { View,StyleSheet, Image } from 'react-native';
 import Screen from '../components/Screen';
 import AppTextInput from '../components/AppTextInput';
 import AppButton from '../components/AppButton';
+import { Formik } from 'formik';
+
 function LogoScreen(props) {
-    const[email,setEmail]=useState()
-    const[password,setPassword]=useState()
+
     return (
     <Screen >
 
     <Image style={styles.logo} source={require('../assets/favicon.png')} />
+    <Formik initialValues={{email:'', password:''}}
+    onSubmit={(values)=>console.log(values)}>
+       {({handleChange,handleSubmit})=>
+       <>
 <AppTextInput name={'email'}
 placeholder='EnterEmail'
 autoCapitalize='none'
-onChangeText={Text=> setEmail(Text)}
+onChangeText={handleChange("email")}
 autoCorrect={false}
 keyboardType= 'email-address'/>
 
 <AppTextInput name={'lock'}
 placeholder='Enter Pass'
-onChangeText={Text=>setPassword(Text)}
+onChangeText={handleChange("password")}
 autoCapitalize='none'
 autoCorrect={false}
 keyboardType= 'numeric'
 secureTextEntry/>
+       
 <Screen>
 
-<AppButton title={'login'} onPress={()=>console.log(email,password)}/>
+<AppButton title={'login'} onPress={handleSubmit}/>
 </Screen>
+       </>
+       }
+
+    </Formik>
     </Screen>
     );
 }
