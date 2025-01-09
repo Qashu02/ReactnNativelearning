@@ -1,21 +1,15 @@
+import React from 'react';
+import { Text, StyleSheet } from 'react-native';
 
-import  { StyleSheet,Text} from 'react-native';
-function AppText({children ,style}) {
-    return (
-     <Text style={[styles.text, style]}>
-        {children}
-     </Text>
-    );
+function AppText({ children, style, ...otherProps }) {
+    return <Text style={[styles.text, style]} {...otherProps}>{children}</Text>;
 }
-const styles = StyleSheet.create({
-    text:{
-    
-    fontFamily:'Aria',
-    fontWeight:'bold',
-    textAlign : 'center'
-   
 
-    }
-})
+const styles = StyleSheet.create({
+    text: {
+        fontSize: 18,
+        color: 'black',
+    },
+});
 
 export default AppText;

@@ -20,9 +20,9 @@ const styles = StyleSheet.create({
         paddingHorizontal:15,
         flexDirection:'row',
         width:'100%',
-        marginTop:10,
-      alignItems:'center'
-        
+       
+      alignItems:'center',
+      
     },
     text:{
         fontSize:16

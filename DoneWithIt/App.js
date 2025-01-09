@@ -11,14 +11,22 @@ import ListingHalls from './app/screen/ListingHalls';
 import AppText from './app/components/AppText';
 import AppTextInput from './app/components/AppTextInput';
 import { useState } from 'react';
+import AppPicker from './app/components/AppPicker';
+const Category=[{
+  value:1, name:'Services'},
+  {
+    value:2, name:'Menu'},
+    {
+      value:3, name:'Nearby'},
+]
 export default function App() {
  const[isOn,setIsOn]=useState(true)
 
   return <>
  
-<Switch value={isOn}
-onValueChange={newValue=>setIsOn(newValue)}/>
+<AppPicker items={Category} name={'apps'} placeholder={'Category'}/>
 
+<AppTextInput name={'email'} placeholder='EnterEmail'/>
   </>
  
 }
