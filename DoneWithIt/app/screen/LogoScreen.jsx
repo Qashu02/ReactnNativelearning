@@ -3,12 +3,14 @@ import { View,StyleSheet, Image } from 'react-native';
 import Screen from '../components/Screen';
 import AppTextInput from '../components/AppTextInput';
 import AppButton from '../components/AppButton';
-import { Formik } from 'formik';
+
 import * as Yup from 'yup'
 import AppText from '../components/AppText';
 import colors from '../config/colors';
 import AppError from '../components/AppError';
 import AppFormField from '../components/AppFormField';
+import SubmitButton from '../components/SubmitButton';
+import AppForm from '../components/AppForm';
 
 const validationSchema= Yup.object().shape({
     email:Yup.string().required().email().label('Email'),
@@ -20,11 +22,11 @@ function LogoScreen(props) {
     <Screen >
 
     <Image style={styles.logo} source={require('../assets/favicon.png')} />
-    <Formik initialValues={{email:'', password:''}}
+    <AppForm initialValues={{email:'', password:''}}
     onSubmit={(values)=>console.log(values)}
     validationSchema={validationSchema}>
-       {({handleChange,handleSubmit,errors,setFieldTouched,touched})=>
-       <>
+
+       
 <AppFormField name="email"
 placeholder="Enter Email"
 autoCapitalize='none'
@@ -42,13 +44,12 @@ keyboardType= 'numeric'
 secureTextEntry/>
        
 <Screen>
-
-<AppButton title={'login'} onPress={handleSubmit}/>
+<SubmitButton title={'login'}/>
 </Screen>
-       </>
-       }
+   
+       
 
-    </Formik>
+    </AppForm>
     </Screen>
     );
 }
