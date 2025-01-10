@@ -30,7 +30,7 @@ function AppPicker({ name,items, selectItem,onSelectItem, placeholder, ...otherp
                 name={item.name} 
                 onPress={()=>{setModalView(false);
                     onSelectItem(item)}
-                }/>}/>
+                } {...otherprops}/>}/>
             </Screen>
             </Modal>
 

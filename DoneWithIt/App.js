@@ -3,6 +3,7 @@ import { Image, StyleSheet, Text, Platform, TouchableHighlight, Alert, Touchable
 import LogoScreen from './app/screen/LogoScreen';
 import Screen from './app/components/Screen';
 import MessagesScreen from './app/screen/MessagesScreen';
+import ListingEditScreen from './app/screen/ListingEditScreen';
 
 
 
@@ -12,7 +13,7 @@ export default function App() {
 
   return <>
 <Screen>
-<MessagesScreen/>
+<ListingEditScreen/>
   </Screen></>
  
 }
