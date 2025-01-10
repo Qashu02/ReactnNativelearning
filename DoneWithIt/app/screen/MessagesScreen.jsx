@@ -6,10 +6,9 @@ import ItemDelete from '../components/ItemDelete';
 import { useState } from 'react';
 
 const InitialMessage = [
-    { id: 1, title: 'T4', description: 'D1', image: require("../assets/image.png") },
-    { id: 2, title: 'T1', description: 'D1', image: require("../assets/image.png") },
-    { id: 3, title: 'T1', description: 'D1', image: require("../assets/image.png") },
-    { id: 4, title: 'T1', description: 'D1', image: require("../assets/image.png") },
+    { id: 1, title: 'Qasim', description: 'Hi Hope you are doing well and i am waiting for you many time ', image: require("../assets/image.png") },
+    { id: 2, title: 'Taimoor', description: 'Ok lets meet in a town and enjoy a party', image: require("../assets/image.png") },
+
 ];
 
 function MessagesScreen(props) {
