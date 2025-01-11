@@ -6,7 +6,7 @@ import colors from '../config/colors';
 import AppText from './AppText';
 import PickerItem from './PickerItem';
 
-function AppPicker({ name,items, selectItem,onSelectItem, placeholder, ...otherprops }) {
+function AppPicker({ name,items, selectItem,onSelectItem,PickerItemComponent =PickerItem,noOfColoumns, placeholder, ...otherprops }) {
     const [modalView, setModalView] = useState(false);
 
     return (
@@ -26,8 +26,10 @@ function AppPicker({ name,items, selectItem,onSelectItem, placeholder, ...otherp
                  />
                  <FlatList data={items}
                  keyExtractor={item => item.value.toString()}
-                 renderItem={({item})=><PickerItem 
+                 numColumns={noOfColoumns}
+                 renderItem={({item})=><PickerItemComponent 
                 name={item.name} 
+                item={item}
                 onPress={()=>{setModalView(false);
                     onSelectItem(item)}
                 } {...otherprops}/>}/>
