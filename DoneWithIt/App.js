@@ -1,52 +1,35 @@
 import { StatusBar } from 'expo-status-bar';
-import { Image, StyleSheet, Text, Platform, TouchableHighlight, Alert, TouchableOpacity, View , Button, SafeAreaView, Switch} from 'react-native';
-import LogoScreen from './app/screen/LogoScreen';
+import { Image, StyleSheet, Text, Platform, TouchableHighlight, Alert, TouchableOpacity, View, Button, SafeAreaView, Switch } from 'react-native';
 import Screen from './app/components/Screen';
-import MessagesScreen from './app/screen/MessagesScreen';
-import ListingEditScreen from './app/screen/ListingEditScreen';
 import { useEffect, useState } from 'react';
-import * as ImagePicker from 'expo-image-picker'
-
-const RequirePermission= async ()=>{
-  
-  const {granted}=await ImagePicker.requestCameraPermissionsAsync()
-  if(!granted) alert("Please To access system you have to ensure permission")
-  }
+import * as ImagePicker from 'expo-image-picker';
+import AppImage from './app/components/ImageInput';
+import ImageInputList from './app/components/ImageInputList';
 
 export default function App() {
-  const [imageUri, setImageUri]=useState()
-  
-useEffect(()=>{
-RequirePermission()
-},[])
-const  selectImage= async ()=>{
-  try {
-    const result= await ImagePicker.launchImageLibraryAsync()
-    if(!result.canceled) setImageUri(result.uri)
-  } catch (error) {
-    console.log("The error is ",error)
-  }
+  const [imageUris, setImageUris] = useState([]);
+const handleAdd=(uri)=>{
+setImageUris([...imageUris,uri])
 }
-  return <>
-<Screen style={styles.container}>
+  const  handleRemove= uri=>{
+    setImageUris(imageUris.filter(imageUri=>imageUri!==uri))
+  }
 
-<Button title='Select Image' onPress={selectImage}/>
-<Image source={ {uri:imageUri}}style={{width:200,
-  height:300
-}}/>
-</Screen>
-  </>
- 
+  return (
+    <>
+      <Screen >
+     
+<ImageInputList imageUris={imageUris} onAddImage={handleAdd}
+onRemoveImage={handleRemove}/>
+      </Screen>
+    </>
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
-
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  
-  
-  
   },
 });
