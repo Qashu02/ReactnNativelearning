@@ -7,15 +7,18 @@ import {
   AppFormField as FormField,
   AppFormPicker as Picker,
   SubmitButton,
+  AppFormImage,
 } from "../components/forms";
 import Screen from "../components/Screen";
 import CategoryItemComponent from "../components/CategoryItemComponent";
+
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
   price: Yup.number().required().min(1).max(10000).label("Price"),
   description: Yup.string().label("Description"),
   category: Yup.object().required().nullable().label("Category"),
+  images: Yup.array().min(1,"Please Select at least one image"),
 });
 
 const categories = [
@@ -77,38 +80,42 @@ const categories = [
 
 function ListingEditScreen() {
   return (
-    <Screen style={styles.container}>
-      <Form
-        initialValues={{
-          title: "",
-          price: "",
-          description: "",
-          category: null,
-        }}
-        onSubmit={(values) => console.log(values)}
-        validationSchema={validationSchema}
-      >
-        <FormField maxLength={255} name="title" placeholder="Title" />
-        <FormField
-          keyboardType="numeric"
-          maxLength={8}
-          name="price"
-          placeholder="Price"
-          width={120}
-        />
-        <Picker items={categories} name="category" placeholder="Category"  noOfColoumns={3} 
-        PickerItemComponent={CategoryItemComponent
-        } />
-        <FormField
-          maxLength={255}
-          multiline
-          name="description"
-          numberOfLines={3}
-          placeholder="Description"
-        />
-        <SubmitButton title="Post" />
-      </Form>
-    </Screen>
+<Screen style={styles.container}>
+
+  <Form
+    initialValues={{
+      title: "",
+      price: "",
+      description: "",
+      category: null,
+      images: [],
+    }}
+    onSubmit={(values) => console.log(values)}
+    validationSchema={validationSchema}
+  >
+  <AppFormImage name='images'/>
+    <FormField maxLength={255} name="title" placeholder="Title" />
+    <FormField
+      keyboardType="numeric"
+      maxLength={8}
+      name="price"
+      placeholder="Price"
+      width={120}
+    />
+    <Picker items={categories} name="category" placeholder="Category"  noOfColoumns={3} 
+    PickerItemComponent={CategoryItemComponent
+    } />
+    <FormField
+      maxLength={255}
+      multiline
+      name="description"
+      numberOfLines={3}
+      placeholder="Description"
+    />
+    <SubmitButton title="Post" />
+  </Form>
+
+</Screen>
   );
 }
 
