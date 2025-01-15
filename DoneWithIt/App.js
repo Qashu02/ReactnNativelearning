@@ -6,7 +6,7 @@ import Screen from './app/components/Screen';
 const Link=()=>{
   const navigation=useNavigation();
   return (
-    <Button title='Click Me' onPress={()=> navigation.navigate('TweetsDetails')} />
+    <Button title='Click Me' onPress={()=> navigation.navigate('TweetsDetails',{id:2})} />
   );
 }
 const Tweets = ({navigation}) => (
@@ -17,10 +17,10 @@ const Tweets = ({navigation}) => (
   </Screen>
 );
 
-const TweetsDetails = () => (
+const TweetsDetails = ({route}) => (
   <Screen>
 
-    <Text>Tweets Detail</Text>
+    <Text> Tweet Details {route.params.id}</Text>
   </Screen>
 );
 
