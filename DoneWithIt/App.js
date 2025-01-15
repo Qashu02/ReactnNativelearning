@@ -6,7 +6,8 @@ import Screen from './app/components/Screen';
 const Link=()=>{
   const navigation=useNavigation();
   return (
-    <Button title='Click Me' onPress={()=> navigation.navigate('TweetsDetails',{id:2})} />
+    <Button title='Click Me'
+     onPress={()=> navigation.navigate('TweetsDetails',{id:1})} />
   );
 }
 const Tweets = ({navigation}) => (
@@ -30,7 +31,8 @@ const StackNavigator = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="Tweets" component={Tweets} />
-      <Stack.Screen name="TweetsDetails" component={TweetsDetails} />
+      <Stack.Screen name="TweetsDetails" component={TweetsDetails}
+      options={({route})=>({title: route.params.id})} />
     </Stack.Navigator>
   );
 };
