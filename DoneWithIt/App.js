@@ -16,7 +16,7 @@ const Tweets = ({navigation}) => (
   <Screen>
 
     <Text>Tweets</Text>
-
+<Link/>
   </Screen>
 );
 const Account =( ) =>  <Text> Account is ready </Text> 
@@ -56,7 +56,8 @@ const TabNavigator=()=>{
       tabBarActiveTintColor:"white"
     }} >
 
-<Tab.Screen name='Tweets' component={Tweets} options={{tabBarIcon:({size,color})=><MaterialCommunityIcons name='home' color={color} size={size} />}}/>
+<Tab.Screen name='Tweets' component={StackNavigator} //nesting navigation 
+options={{tabBarIcon:({size,color})=><MaterialCommunityIcons name='home' color={color} size={size} />}}/>
 <Tab.Screen name='Account' component={Account} options={{tabBarIcon:({size,color})=><MaterialCommunityIcons name='account' color={color} size={size} />}}/>
     </Tab.Navigator>
   );
