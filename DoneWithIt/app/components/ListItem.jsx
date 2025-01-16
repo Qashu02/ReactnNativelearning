@@ -25,10 +25,7 @@ function ListItem({
   renderRightActions,
 }) {
   return (<>
-  <GestureHandlerRootView>
-<Swipeable renderRightActions={
-  renderRightActions
-}>
+
 
       <TouchableHighlight onPress={onPress}>
         <View style={[styles.container, style]}>
@@ -41,8 +38,7 @@ function ListItem({
   <Icon name={'chevron-right'} backgroundColor="none" color={colors.medium} size={30} />
         </View>
       </TouchableHighlight>
-</Swipeable>
-  </GestureHandlerRootView>
+
   
   </>
   );

@@ -2,12 +2,12 @@ import React from 'react';
 import { View,StyleSheet ,Image,Text, TouchableOpacity} from 'react-native';
 import AppText from './AppText';
 
-function Card({title,image,subtitle}) {
+function Card({title,image,subtitle ,onPress}) {
     return (
         <View style={styles.container}>
 
 <TouchableOpacity style={styles.card}
-
+onPress={onPress}
 >
 
         <Image style={styles.img} source={image}/>

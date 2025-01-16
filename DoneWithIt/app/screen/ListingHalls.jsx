@@ -14,15 +14,21 @@ const halls=[{
     price:'$1000',
     image:require('../assets/Hall2.jpg')
 }]
-function ListingHalls(props) {
+function ListingHalls({navigation}) {
     return (
-        <Screen>
+        <Screen >
 
             <FlatList data={halls}
             keyExtractor={(halls)=>halls.id.toString()}
-            renderItem={({item})=><Card title={item.name}
-            subtitle={item.price}
-            image={item.image}/>} />
+
+            renderItem={({ item }) => (
+                <Card
+                  title={item.name}
+                  subTitle={item.price}
+                  image={item.image}
+                  onPress={() => navigation.navigate('Listings',item)}
+                />
+              )}  />
         </Screen>
     );
 }
