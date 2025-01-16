@@ -14,15 +14,15 @@ const menu=[{
         backgroundColor: 'yellow'
     }},
     {
-        Title:'Email us',
+        Title:'My Messages',
         icon:{
             name:'email',
             backgroundColor: 'red'
         },
-
+targetScreen:'Messages'
 
 }]
-function AccountScreen(props) {
+function AccountScreen({navigation}) {
     return (
        <Screen style={styles.screen}>
 
@@ -36,7 +36,7 @@ function AccountScreen(props) {
 <FlatList data={menu}
 keyExtractor={(menu)=> menu.Title.toString()}
 renderItem={({item})=><ListItem title={item.Title}
-ImageComponent={<Icon name={item.icon.name} backgroundColor={item.icon.backgroundColor} size={30}/>}
+ImageComponent={<Icon name={item.icon.name} backgroundColor={item.icon.backgroundColor} size={30}/>} onPress={()=> navigation.navigate(item.targetScreen)}
 />} ItemSeparatorComponent={itemSeprator} />
 </View>
 <ListItem title={"logout"} ImageComponent={<Icon name={'logout'} backgroundColor='purple' size={30}/>}/>
@@ -47,6 +47,7 @@ ImageComponent={<Icon name={item.icon.name} backgroundColor={item.icon.backgroun
 const styles = StyleSheet.create({
     screen:{
         backgroundColor:'#F7F5EF',
+       
     }
     ,
     container:{

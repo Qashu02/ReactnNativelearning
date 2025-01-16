@@ -1,5 +1,5 @@
 import { FlatList, View, StyleSheet } from 'react-native';
-import ListItem from '../components/ListItemSwipeable';
+import ListItem from '../components/ListItem';
 import Screen from '../components/Screen';
 import itemSeprator from '../components/itemSeprator';
 import ItemDelete from '../components/ItemDelete';
@@ -28,7 +28,7 @@ function MessagesScreen(props) {
                 data={Messages} // Use Messages state, not InitialMessage
                 keyExtractor={(message) => message.id.toString()}
                 renderItem={({ item }) => (
-                    <ListItemSwipeable
+                    <ListItem
                         title={item.title}
                         subTitle={item.description}
                         image={item.image}
