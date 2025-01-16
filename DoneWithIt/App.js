@@ -5,6 +5,7 @@ import Screen from './app/components/Screen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 import AuthNavigation from './app/Navigation/AuthNavigation';
+import navigationTheme from './app/Navigation/navigationTheme';
 
 const Link=()=>{
   const navigation=useNavigation();
@@ -65,7 +66,7 @@ options={{tabBarIcon:({size,color})=><MaterialCommunityIcons name='home' color={
 }
 export default function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={navigationTheme}>
 <AuthNavigation/>
     </NavigationContainer>
   );
