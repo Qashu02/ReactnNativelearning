@@ -9,6 +9,7 @@ import AccountNavigator from "./AccountNavigator";
 import { MaterialCommunityIcons} from "@expo/vector-icons"
 import NewListingButton from "./NewListingButton";
 import colors from "../config/colors";
+import routes from "./routes";
 
 const Tab =createBottomTabNavigator();
 const AppNavigator =()=>{
@@ -18,7 +19,7 @@ return<>
     <Tab.Screen name="Feed" component={FeedNavigator} options={{tabBarIcon:({size,color})=><MaterialCommunityIcons name="home" color={color} size={size}/>}} />
     <Tab.Screen name="ListingEdit" component={ListingEditScreen }
 options={({navigation})=>({
-   headerShown:false ,tabBarButton:()=> <NewListingButton  onPress={()=> navigation.navigate('ListingEdit')}
+   headerShown:false ,tabBarButton:()=> <NewListingButton  onPress={()=> navigation.navigate(routes.LISTING_EDIT)}
     />,tabBarIcon:({color,size})=><MaterialCommunityIcons name="plus-cirlce"  color={color} size={size}/>
 
 })}  />
