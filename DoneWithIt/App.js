@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import AppNavigator from './app/Navigation/AppNavigator';
 import ListingEditScreen from './app/screen/ListingEditScreen';
 import AuthNavigation from './app/Navigation/AuthNavigation';
+import ListingHalls from './app/screen/ListingHalls';
 
 export default function App() {
   return (

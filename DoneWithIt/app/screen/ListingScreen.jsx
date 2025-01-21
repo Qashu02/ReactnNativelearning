@@ -6,7 +6,7 @@ function ListingScreen({route}) {
     const listing= route.params
     return (
      <View>
-        <Image style={styles.img} source={listing.image} />
+        <Image style={styles.img} source={listing.images[0]} />
 <View style={styles.info}>
     <Text style={styles.title}>{listing.name}</Text>
     <Text style={styles.subTitle}>{listing.price}</Text>
