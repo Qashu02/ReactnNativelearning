@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, ActivityIndicatorBase, Button, FlatList } from 'react-native';
+import { Button, FlatList } from 'react-native';
 import Card from '../components/Card';
 import Screen from '../components/Screen';
 import listingsApi from '../api/listings';
 import AppText from '../components/AppText';
-
+import ActivityIndicator from '../components/ActivityIndicator';
 
 function ListingHalls({navigation}) {
     const [listings,setListings]=useState([])
@@ -32,8 +32,8 @@ useEffect(()=>{
             
            
           }
-<ActivityIndicator animating={loading} size={50} />
-<FlatList
+<ActivityIndicator visible={loading}  />
+{/* <FlatList
   data={listings}
   keyExtractor={(item) => item.id.toString()}
   renderItem={({ item }) => (
@@ -44,7 +44,7 @@ useEffect(()=>{
       onPress={() => navigation.navigate('Listings', item)} 
     />
   )}
-/>
+/> */}
 
 
         </Screen>
