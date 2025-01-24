@@ -1,21 +1,28 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import AppNavigator from './app/Navigation/AppNavigator';
-import ListingEditScreen from './app/screen/ListingEditScreen';
-import AuthNavigation from './app/Navigation/AuthNavigation';
-import ListingHalls from './app/screen/ListingHalls';
+import { StyleSheet, Text, View } from 'react-native';
+import { useNetInfo } from '@react-native-community/netinfo';
 
 export default function App() {
+  const netInfo = useNetInfo();
+  
+  console.log(netInfo); // Logs network status
+
   return (
-    <NavigationContainer>
-    <AppNavigator/>
-    </NavigationContainer>
+    <View style={styles.container}>
+
+  {netInfo.isConnected? <Text >Hi</Text> : <Text>No</Text>}
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    fontSize: 16,
+    marginBottom: 10,
   },
 });

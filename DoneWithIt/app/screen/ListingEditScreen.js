@@ -79,14 +79,18 @@ const categories = [
     value: 9,
   },
 ];
-const handleSubmit =async (listings)=>{
-const result= await listingApi.addListings({...listings})
-if(!result.ok) alert("not Successfull")
-  alert('succesfull')
-}
 
 function ListingEditScreen() {
- const location=useLocation()
+  const location=useLocation()
+  const handleSubmit =async (listings)=>{
+    
+  const result= await listingApi.addListings({...listings,
+    location }, 
+    (progress)=> console.log(progress)
+  )
+  if(!result.ok) alert("not Successfull")
+    alert('succesfull')
+  }
   return (
 <Screen style={styles.container}>
 
