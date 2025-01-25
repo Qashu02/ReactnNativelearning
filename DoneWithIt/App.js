@@ -3,6 +3,7 @@ import { View , StyleSheet,Text} from 'react-native';
 import AsyncStorage  from '@react-native-async-storage/async-storage';
 import AppNavigator from './app/Navigation/AppNavigator';
 import { NavigationContainer } from '@react-navigation/native';
+import OfflineNotice from './app/components/OfflineNotice';
 export default function App() {
   const demo= async()=>{
     try {
@@ -19,9 +20,13 @@ export default function App() {
     demo();
   },[]);
   return (
+    <>
+    
+    <OfflineNotice/>
     <NavigationContainer>
        <AppNavigator/>
     </NavigationContainer>  
+    </>
   );
 
 }
