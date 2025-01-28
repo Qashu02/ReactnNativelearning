@@ -25,7 +25,7 @@ targetScreen:'Messages'
 }]
 function AccountScreen({navigation}) {
 
-   const {user}= useContext(AuthContext)
+   const {user,setUser}= useContext(AuthContext)
     return (
        <Screen style={styles.screen}>
 
@@ -42,7 +42,8 @@ renderItem={({item})=><ListItem title={item.Title}
 ImageComponent={<Icon name={item.icon.name} backgroundColor={item.icon.backgroundColor} size={30}/>} onPress={()=> navigation.navigate(item.targetScreen)}
 />} ItemSeparatorComponent={itemSeprator} />
 </View>
-<ListItem title={"logout"} ImageComponent={<Icon name={'logout'} backgroundColor='purple' size={30}/>}/>
+<ListItem title={"logout"} ImageComponent={<Icon name={'logout'} backgroundColor='purple' size={30}
+/>} onPress={()=>setUser(null)}/>
 
        </Screen>
     );
