@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import AppText from '../components/AppText';
 import ListItem from '../components/ListItem';
 import {FlatList, View,StyleSheet } from 'react-native';
@@ -6,6 +6,7 @@ import Screen from '../components/Screen';
 
 import Icon from '../components/Icon';
 import itemSeprator from '../components/itemSeprator';
+import AuthContext from '../auth/Context';
 
 const menu=[{
     Title:'Check Inventory',
@@ -23,12 +24,14 @@ targetScreen:'Messages'
 
 }]
 function AccountScreen({navigation}) {
+
+   const {user}= useContext(AuthContext)
     return (
        <Screen style={styles.screen}>
 
 <View style={styles.container}>
-           <ListItem title={'Qasim'}
-            subTitle={'hafizqasim5566@gmail.com'}
+           <ListItem title={user.name}
+            subTitle={user.email}
             image={require('../assets/Hall1.jpg')}
             />
         </View>
