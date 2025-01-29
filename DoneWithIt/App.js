@@ -14,9 +14,8 @@ const [user,setUser]=useState()
 const [isReady , isSetReady]=useState(false)
 const restoreToken= async ()=>{
   try {
-    const Token=await AuthStorage.getToken()
-    if(!Token) return;
-    setUser(jwtDecode(Token))
+    const user=await AuthStorage.getUser()
+   if(user) setUser(user)
     
   } catch (error) {
     console.log(error)
