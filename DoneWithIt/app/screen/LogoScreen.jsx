@@ -10,8 +10,8 @@ import {
 import authApi from "../api/auth";
 import * as Yup from "yup";
 import { jwtDecode } from "jwt-decode";
-import AuthContext from "../auth/Context";
-
+import AuthContext from "../auth/context";
+import AuthStorage from '../auth/storage'
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
   password: Yup.string().required().min(4).label("Password"),
@@ -20,21 +20,29 @@ const validationSchema = Yup.object().shape({
 function LogoScreen(props) {
   const [loginFailed, setLoginFailed] = useState(false);
 const authContext= useContext(AuthContext)
-  const handleSubmit = async ({ email, password }) => {
-    
-
+const handleSubmit = async ({ email, password }) => {
+  try {
     const result = await authApi.login(email, password);
+    console.log("API Response:", result);
 
     if (!result.ok) {
-      console.log("Login failed");
+      console.log("Login failed:", result.problem); // Log the specific problem
       setLoginFailed(true);
       return;
     }
 
-   const user =jwtDecode(result.data)
-   authContext.setUser(user)
+    console.log("Token:", result.data);
+    const user = jwtDecode(result.data);
+    console.log("Decoded User:", user);
+
+    authContext.setUser(user);
+    await AuthStorage.storeToken(result.data);
     setLoginFailed(false);
-  };
+  } catch (error) {
+    console.log("Error during login:", error);
+    setLoginFailed(true);
+  }
+};
 
   return (
     <Screen>

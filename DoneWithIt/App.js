@@ -5,9 +5,20 @@ import AppNavigator from './app/Navigation/AppNavigator';
 import { NavigationContainer } from '@react-navigation/native';
 import OfflineNotice from './app/components/OfflineNotice';
 import AuthNavigation from './app/Navigation/AuthNavigation';
-import AuthContext from './app/auth/Context';
+import AuthContext from './app/auth/context';
+import { jwtDecode } from 'jwt-decode';
+import AuthStorage from './app/auth/storage'
 export default function App() {
 const [user,setUser]=useState()
+
+const restoreToken= async ()=>{
+ const Token=await AuthStorage.getToken()
+ if(!Token) return;
+ setUser(jwtDecode(Token))
+}
+useEffect(()=>{
+restoreToken();
+},[])
   return (
     <AuthContext.Provider value={{user,setUser}} >
     
