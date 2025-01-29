@@ -20,29 +20,22 @@ const validationSchema = Yup.object().shape({
 function LogoScreen(props) {
   const [loginFailed, setLoginFailed] = useState(false);
 const authContext= useContext(AuthContext)
-const handleSubmit = async ({ email, password }) => {
-  try {
+  const handleSubmit = async ({ email, password }) => {
+    
+
     const result = await authApi.login(email, password);
-    console.log("API Response:", result);
 
     if (!result.ok) {
-      console.log("Login failed:", result.problem); // Log the specific problem
+      console.log("Login failed");
       setLoginFailed(true);
       return;
     }
 
-    console.log("Token:", result.data);
-    const user = jwtDecode(result.data);
-    console.log("Decoded User:", user);
-
-    authContext.setUser(user);
-    await AuthStorage.storeToken(result.data);
+   const user =jwtDecode(result.data)
+   authContext.setUser(user)
+   AuthStorage.storeToken(result.data)
     setLoginFailed(false);
-  } catch (error) {
-    console.log("Error during login:", error);
-    setLoginFailed(true);
-  }
-};
+  };
 
   return (
     <Screen>
