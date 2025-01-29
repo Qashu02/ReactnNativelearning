@@ -12,6 +12,7 @@ import * as Yup from "yup";
 import { jwtDecode } from "jwt-decode";
 import AuthContext from "../auth/context";
 import AuthStorage from '../auth/storage'
+import useAuth from "../auth/useAuth";
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
   password: Yup.string().required().min(4).label("Password"),
@@ -19,7 +20,7 @@ const validationSchema = Yup.object().shape({
 
 function LogoScreen(props) {
   const [loginFailed, setLoginFailed] = useState(false);
-const authContext= useContext(AuthContext)
+const {login}= useAuth();
   const handleSubmit = async ({ email, password }) => {
     
 
@@ -31,10 +32,8 @@ const authContext= useContext(AuthContext)
       return;
     }
 
-   const user =jwtDecode(result.data)
-   authContext.setUser(user)
-   AuthStorage.storeToken(result.data)
-    setLoginFailed(false);
+ setLoginFailed(false)
+ login(result.data)
   };
 
   return (

@@ -24,8 +24,9 @@ const restoreToken= async ()=>{
     isSetReady(true)
   }
 }
-useEffect(()=>
-restoreToken(),[])
+useEffect(()=>{
+  restoreToken() 
+},[])
 if(!isReady){
 
   return (

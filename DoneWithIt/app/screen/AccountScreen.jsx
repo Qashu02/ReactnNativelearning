@@ -8,6 +8,7 @@ import Icon from '../components/Icon';
 import itemSeprator from '../components/itemSeprator';
 import AuthContext from '../auth/context';
 import AuthStorage from '../auth/storage'
+import useAuth from '../auth/useAuth';
 const menu=[{
     Title:'Check Inventory',
     icon:{
@@ -25,12 +26,9 @@ targetScreen:'Messages'
 }]
 function AccountScreen({navigation}) {
 
-   const {user,setUser}= useContext(AuthContext)
+   const {user,logout}= useAuth();
 
-   const handleLogout=()=>{
-    setUser(null);
-    AuthStorage.removeToken()
-   }
+   
     return (
        <Screen style={styles.screen}>
 
@@ -48,7 +46,9 @@ ImageComponent={<Icon name={item.icon.name} backgroundColor={item.icon.backgroun
 />} ItemSeparatorComponent={itemSeprator} />
 </View>
 <ListItem title={"logout"} ImageComponent={<Icon name={'logout'} backgroundColor='purple' size={30}
-/>} onPress={handleLogout}/>
+/>} onPress={()=>logout()
+
+}/>
 
        </Screen>
     );
