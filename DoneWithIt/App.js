@@ -7,18 +7,34 @@ import OfflineNotice from './app/components/OfflineNotice';
 import AuthNavigation from './app/Navigation/AuthNavigation';
 import AuthContext from './app/auth/context';
 import { jwtDecode } from 'jwt-decode';
-import AuthStorage from './app/auth/storage'
+import AuthStorage from './app/auth/storage';
+import {AppLoading} from 'expo'
 export default function App() {
 const [user,setUser]=useState()
-
+const [isReady , isSetReady]=useState(false)
 const restoreToken= async ()=>{
- const Token=await AuthStorage.getToken()
- if(!Token) return;
- setUser(jwtDecode(Token))
+  try {
+    const Token=await AuthStorage.getToken()
+    if(!Token) return;
+    setUser(jwtDecode(Token))
+    
+  } catch (error) {
+    console.log(error)
+  }
+  finally{
+    isSetReady(true)
+  }
 }
-useEffect(()=>{
-restoreToken();
-},[])
+useEffect(()=>
+restoreToken(),[])
+if(!isReady){
+
+  return (
+<View style={styles.container}>
+  <Text >Loading..</Text>
+</View>)
+}
+
   return (
     <AuthContext.Provider value={{user,setUser}} >
     
