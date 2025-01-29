@@ -1,5 +1,6 @@
 import * as SecureStore from 'expo-secure-store'
 import { jwtDecode } from 'jwt-decode';
+import { get } from 'react-native/Libraries/TurboModule/TurboModuleRegistry';
 
 const key="authToken";
 
@@ -38,5 +39,6 @@ const removeToken=async ()=>{
 export default{
     storeToken,
     getUser,
-    removeToken
+    removeToken,
+    getToken
 }
