@@ -9,6 +9,7 @@ import AuthContext from './app/auth/context';
 import { jwtDecode } from 'jwt-decode';
 import AuthStorage from './app/auth/storage';
 import {AppLoading} from 'expo'
+import RegistrationScreen from './app/screen/RegistrationScreen';
 export default function App() {
 const [user,setUser]=useState()
 const [isReady , isSetReady]=useState(false)
@@ -43,6 +44,7 @@ if(!isReady){
       {user?<AppNavigator/>:<AuthNavigation/>}
     </NavigationContainer>  
     </ AuthContext.Provider >
+   
   );
 
 }

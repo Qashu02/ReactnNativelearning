@@ -5,6 +5,7 @@
     "expo-image-picker": "^16.0.4",
     "formik": "^2.4.6",
     "react-native-gesture-handler": "~2.20.2",
-    "react-native-reanimated": "^3.16.6"
+    "react-native-reanimated": "^3.16.6",
+    "expo-notifications": "~0.29.13"
   }
 }
