@@ -7,7 +7,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import NewListingButton from "./NewListingButton";
 import routes from "./routes";
 import * as Notifications from "expo-notifications";
-
+import expoPushToken from "../api/expoPushToken";
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
@@ -18,8 +18,8 @@ const AppNavigator = () => {
 
       // Get Expo push token (For Bare Workflow, use `experienceId` or `projectId`)
       const token = await Notifications.getExpoPushTokenAsync();
-
-      console.log(token);
+expoPushToken.register(token)
+    
     } catch (error) {
       console.log("Error in getting notification", error);
     }
